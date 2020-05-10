@@ -1,0 +1,18 @@
+links = ["A: B C D", "B: A D", "C: A", "D: B C"]
+deadEnds = ["A: B C D", "B: A D", "C:", "D: B C"]
+spiderTraps = ["A: B C D", "B: A D", "C: C", "D: B C"]
+
+rawTextRDD = sc.parallelize(deadEnds)
+initialRank = 1.0 / rawTextRDD.count()
+
+
+# your implementation
+# your implementation
+# your implementation
+
+sortedPageRankRDD = pageRankRDD.sortBy(lambda pair: -pair[1][1])
+sortedPageRankRDD.collect()
+# [('C', ([''], 0.00240619428600049)), 
+#  ('B', (['A', 'D'], 0.00240619428600049)), 
+#  ('D', (['B', 'C'], 0.00240619428600049)), 
+#  ('A', (['B', 'C', 'D'], 0.001650987720184256))]
